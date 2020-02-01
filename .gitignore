@@ -1,1 +1,6 @@
-AIF360/
+.
+..
+.DS_Store
+.git
+TGAN/
+check1.py
