@@ -4,3 +4,6 @@
 .git
 TGAN/
 check1.py
+__pycache__
+source/__pycache__
+source/.DS_Store
