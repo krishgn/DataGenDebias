@@ -92,17 +92,13 @@ X_train_f, X_test_f, Y_train_f, Y_test_f = create_test_train(data_female,target_
 
 acc_svc_mr_ms, pred = sv_accuracy(X_train_m,Y_train_m,X_test_m,Y_test_m)
 print("\n Accuracy with male train and male test data: ",round(acc_svc_mr_ms,2),"%")
-print(confusion_matrix(Y_test_m, pred))
 
 
 acc_svc_mr_fs, pred = sv_accuracy(X_train_m,Y_train_m,X_test_f,Y_test_f)
 print("\n Accuracy with male train and female test data: ",round(acc_svc_mr_fs,2),"%")
-print(confusion_matrix(Y_test_f, pred))
 
 acc_svc_fr_fs, pred = sv_accuracy(X_train_f,Y_train_f,X_test_f,Y_test_f)
 print("\n Accuracy with female train and female test data: ",round(acc_svc_fr_fs,2),"%")
-print(confusion_matrix(Y_test_f, pred))
 
 acc_svc_fr_ms, pred = sv_accuracy(X_train_f,Y_train_f,X_test_m,Y_test_m)
 print("\n Accuracy with female train and male test data: ",round(acc_svc_fr_ms,2),"%")
-print(confusion_matrix(Y_test_m, pred))
