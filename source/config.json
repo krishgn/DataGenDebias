@@ -1,0 +1,9 @@
+{
+    "name": "female_income",
+    "num_random_search": 10,
+    "train_csv": "..data/processed_female.csv",
+    "continuous_cols": [0, 2, 3 ,9, 10, 11],
+    "epoch": 5,
+    "steps_per_epoch": 5000,
+    "sample_rows": 1000
+}

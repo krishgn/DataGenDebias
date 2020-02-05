@@ -7,3 +7,6 @@ check1.py
 source/.DS_Store
 source/__pycache__/
 data/census-train.csv
+TGAN_new/
+../.DS_Store
+.DS_Store
