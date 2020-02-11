@@ -46,6 +46,6 @@ data_male = data_input[(data_orig['sex'] == 'Male')]
 data_female = data_input[(data_orig['sex'] == 'Female')]
 
 #write all the outputs data to csv files
-data_input.to_csv('../data/processed_adult.csv',header=False, index=False)
+data_input.to_csv('../data/processed_adult.csv',index=False)
 data_male.to_csv('../data/processed_male.csv', header=False, index=False)
 data_female.to_csv('../data/processed_female.csv', header=False, index=False)
