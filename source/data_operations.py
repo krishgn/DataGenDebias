@@ -1,29 +1,34 @@
-import pandas as pd
+import keras as ke
+import keras.backend as K
+from keras.layers import Input, Dense, Dropout
+from keras.models import Model
 import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
-from sklearn.ensemble import RandomForestRegressor
-from sklearn.svm import SVC
-from sklearn.metrics import accuracy_score, classification_report, confusion_matrix, f1_score
+import pandas as pd
 
-def create_test_train(df,target_name):
-"""This function separates target label and features
-    to be trained by svm"""
-    feat = df.drop(columns=target_name,axis=1)
-    label = df[target_name]
-    return train_test_split(feat, label, test_size=0.3)
+def nn_classifier(n_features):
+    inputs = Input(shape=(n_features,))
+    dense1 = Dense(32, activation='relu')(inputs)
+    dropout1 = Dropout(0.2)(dense1)
+    dense2 = Dense(32, activation='relu')(dropout1)
+    dropout2 = Dropout(0.2)(dense2)
+    dense3 = Dense(32, activation="relu")(dropout2)
+    dropout3 = Dropout(0.2)(dense3)
+    outputs = Dense(1, activation='sigmoid')(dropout3)
+    model = Model(inputs=[inputs], outputs=[outputs])
+    model.compile(loss='binary_crossentropy', optimizer='adam')
+    return model
 
-def sv_accuracy(X_train,Y_train,X_test,Y_test):
-"""This functions takes train and test data as input.
-    An SV classifier is trained and used to predict on test data
-    Accuracy calculated on prediction and Y_test."""
-    scaler = StandardScaler()
-    X_train_scaled = scaler.fit_transform( X_train )
-    X_test_scaled = scaler.transform( X_test )
-    svc = SVC(kernel = 'rbf', max_iter = 1000, probability = True)
-    svmodel = svc.fit(X_train_scaled, Y_train)
-    pred = svmodel.predict(X_test_scaled)
-    accuracy_test = accuracy_score(Y_test, pred)
-    return accuracy_test, pred
+# def p_rule(y_pred, z_values):
+#     y_z_1 = y_pred[z_values == 1] > threshold if threshold else y_pred[z_values == 1]
+#     y_z_0 = y_pred[z_values == 0] > threshold if threshold else y_pred[z_values == 0]
+#     odds = y_z_1.mean() / y_z_0.mean()
+#     #val = np.min([odds, 1/odds]) * 100
+#     return odds*100
+
+def p_rule(y_pred,z_values):
+    yz_dat = pd.DataFrame(columns = ['y', 'Z'])
+    yz_dat['y'] = y_pred
+    yz_dat['Z'] = z_values
+    num = len(yz_dat[(yz_dat['y']==1) & (yz_dat['Z']=='Male') ])
+    den = len(yz_dat[(yz_dat['y']==1) & (yz_dat['Z']=='Female') ])
+    return num/den
