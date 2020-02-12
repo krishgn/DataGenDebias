@@ -7,3 +7,10 @@ check1.py
 __pycache__
 source/__pycache__
 source/.DS_Store
+<<<<<<< HEAD
+=======
+source/__pycache__/
+data/census-train.csv
+TGAN_new/
+source/check1.py
+>>>>>>> bFeb3
