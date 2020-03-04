@@ -19,7 +19,7 @@ In DataGenDebias we make use of Synthetic Data Generation by Tabular GAN (citati
 
 #### 3.1 Requirements
 - Anaconda
-- Python 3.x
+- Python 3.7
 
 #### 3.2 Installation steps
 
