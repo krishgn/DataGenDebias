@@ -1,0 +1,11 @@
+.
+..
+.DS_Store
+.git
+TGAN/
+check1.py
+__pycache__
+source/__pycache__
+source/.DS_Store
+=======
+>>>>>>> 25d9c6836db407d9fc5191c92814ddb03468ea33
