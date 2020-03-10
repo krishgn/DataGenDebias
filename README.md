@@ -49,9 +49,8 @@ The scripts can be found in source/ and are as follows:
   i) Clean full dataset
   ii) Clean male only dataset
   iii) Clean female only dataset
-2. **data_classify.py** : This script runs the nn classifier on the data and analyses the results. Calculates accuracy, bias metric, etc.
-3. **create_TGAN_model.py** : This script takes in the clean data and trains the TGAN on it to create a model
-4. **generate_TGAN_data.py** : This scripts takes in the already trained TGAN model and generates the requisite number of synthetic data samples
-5. **data_operations.py** : This script contains the different functions used in data_classify
-
-### 4. Data Handling
+2. **data_operations.py** : This script defines the Data class and the functions necessary to classify it. 
+Defines the classifier, bias metrics. 
+3. **data_classify.py** : This script takes in a preprocessed dataset and trains a classifier, outputs the accuracy score and bias factor
+4. **data_augment.py** : This script asks for an augmentation factor from user and augments the original data with TGAN generated data. Augmentation Factor = 1 is when no of males = no of females
+5. **tgan_train_generate.ipynb** : This script trains tgan on the female data points and generate synthetic data.
